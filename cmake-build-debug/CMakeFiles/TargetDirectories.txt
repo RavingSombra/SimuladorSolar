@@ -1,3 +1,0 @@
-C:/Users/alexg/CLionProjects/SimuladorSolar/cmake-build-debug/CMakeFiles/SimuladorSolar.dir
-C:/Users/alexg/CLionProjects/SimuladorSolar/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/alexg/CLionProjects/SimuladorSolar/cmake-build-debug/CMakeFiles/rebuild_cache.dir
