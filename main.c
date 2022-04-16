@@ -7,8 +7,7 @@
 
 void input(char *nomeDoFicheiro);
 
-void
-output(char nome[MAX], float kwDia, float irradiancia, float kwGasto, float area, int mes, int ano, char *resposta);
+void output(char nome[MAX], float kwDia, float irradiancia, float kwGasto, float area, int mes, int ano, char *resposta);
 
 void menu();
 
@@ -53,10 +52,7 @@ void input(char *nomeDoFicheiro) {
     fclose(ptr);
 }
 
-void
-output(char nome[MAX], float kwDia, float irradiancia, float kwGasto, float area, int mes, int ano, char *resposta) {
-
-}
+void output(char nome[MAX], float kwDia, float irradiancia, float kwGasto, float area, int mes, int ano, char *resposta) { }
 
 void menu() {
     puts(" =====SIMULADOR DE PRODUCAO FOTOVOLTAICA===== ");
@@ -82,38 +78,48 @@ void menu() {
     puts(" |                                          | ");
     puts(" ============================================ ");
 }
+void assistencia() {
+    puts("A nossa linha telefonica de assistencia funciona nos dias uteis entre as 8 e as 18 horas.");
+    puts("Se desejar desloque-se 'as nossas instalacoes.");
+    puts("Contacto telefonico: 212345667");
+    puts("Endereco eletronico: mundo.melhor@gmail.com");
+    puts("Loja fisica perto de si: Rua poluida, lote 3");
+}
 
-/*int monthDays(int mes, int ano)
-{
-    if (findBissexto(ano) == 2 && mes == 2){
+int monthDays(int mes, int ano) {
+    if (findBissexto(ano) == 2 && mes == 2) {
         return 29;
     }
 
-    switch (mes)
-    {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12: return 31;
-        case 4:
-        case 6:
-        case 9:
-        case 11: return 30;
-        case 2: return 28;
+    switch (mes) {
+        case 'a':
+            break;
+        case 'm':
+            break;
+        case 'r':
+            break;
+        case 'g':
+            break;
+        case 'v':
+            break;
+        case 'p':
+            break;
+        case 's':
+            break;
+        case 't':
+            break;
+        case 'd':
+            menu();
+            break;
+        case 'h':
+            assistencia();
+            break;
+        case 'q':
+            printf("Simulador encerrado");
+            return 0;
+        default:
+            break;
     }
 
     return -1;
 }
-
-int findBissexto(int ano)
-{
-    if (ano % 4 == 0 && ano % 100 != 0)
-        return 2;
-    else if (ano % 400 == 0)
-        return 2;
-    else
-        return 1;
-}*/
