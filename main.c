@@ -59,28 +59,28 @@ output(char nome[MAX], float kwDia, float irradiancia, float kwGasto, float area
 }
 
 void menu() {
-    puts("+-CALCULADORA DE POUPANCA ENERGETICA-+");
-    puts("| a Quanto gasta mensalmente         |");
-    puts("| b Quanto gasta anualmente          |");
-    puts("| c Media Diaria                     |");
-    puts("|  / <a> <b> - compute a / b         |");
-    puts("|  % <a> <b> - compute a % b         |");
-    puts("+-Conversions -----------------------+");
-    puts("|  h <x>     - x from dec to hex     |");
-    puts("|  H <x>     - x from hex to dec     |");
-    puts("|  o <x>     - x from dec to oct     |");
-    puts("|  O <x>     - x from oct to dec     |");
-    puts("|  c <x>     - x from hex to oct     |");
-    puts("|  C <x>     - x from oct to hex     |");
-    puts("+-Advanced --------------------------+");
-    puts("|  ! <n>     - factorial of n        |");
-    puts("|  b <n>     - plays buzz up to n    |");
-    puts("+-Interface -------------------------+");
-    puts("|  h         - print this menu       |");
-    puts("|  q         - end program           |");
-    puts("+------------------------------------+");
-
-
+    puts(" =====SIMULADOR DE PRODUCAO FOTOVOLTAICA===== ");
+    puts(" |                                          | ");
+    puts(" |_Registos_________________________________| ");
+    puts(" |  a Adicionar consumo                     | ");
+    puts(" |  m Modificar consumo                     | ");
+    puts(" |  r Remover consumo                       | ");
+    puts(" |                                          | ");
+    puts(" |_Calculos_________________________________| ");
+    puts(" |  g Média de consumo anual                | ");
+    puts(" |  v Variancia de consumo verao vs inverno | ");
+    puts(" |                                          | ");
+    puts(" |_Simulacao________________________________| ");
+    puts(" |  p Numero de paineis a instalar          | ");
+    puts(" |  s Poupanca anual estimada               | ");
+    puts(" |  t Tempo de retorno do investimento      | ");
+    puts(" |                                          | ");
+    puts(" |_Diversos_________________________________| ");
+    puts(" |  d Imprimir este menu                    | ");
+    puts(" |  h Solicitar assistencia                 | ");
+    puts(" |  q Sair                                  | ");
+    puts(" |                                          | ");
+    puts(" ============================================ ");
 }
 
 /*int monthDays(int mes, int ano)
