@@ -11,14 +11,36 @@ void output(char nome[MAX], float kwDia, float irradiancia, float kwGasto, float
 
 void menu();
 
+void escolha(char c);
+
+void opcaoA();
+
+void opcaoM();
+
+void opcaoR();
+
+void opcaoG();
+
+void opcaoV();
+
+void opcaoP();
+
+void opcaoS();
+
+void opcaoT();
+
 int monthDays(int mes, int ano);
 
 int findBissexto(int ano);
 
 int main(void) {
-    char nomeDoFicheiro[9];
-    scanf(" %s", &nomeDoFicheiro);
-    input(nomeDoFicheiro);
+    char opcao;
+    do {
+        if (scanf(" %c", &opcao) == 0) {
+            printf("erro");
+        }
+        escolha(opcao);
+    } while (opcao!='q');
     //Variáveis
 
     puts("OK, ficheiro acedido sem problemas");
@@ -90,7 +112,6 @@ int monthDays(int mes, int ano) {
     if (findBissexto(ano) == 2 && mes == 2) {
         return 29;
     }
-
     switch (mes) {
         case 'a':
             break;
@@ -122,4 +143,44 @@ int monthDays(int mes, int ano) {
     }
 
     return -1;
+}
+void escolha(char c){
+        switch (c) {
+            case 'a':
+                opcaoA();
+                break;
+            case 'm':
+                opcaoM();
+                break;
+            case 'r':
+                opcaoR();
+                break;
+            case 'g':
+                opcaoG();
+                break;
+            case 'v':
+                opcaoV();
+                break;
+            case 'p':
+                opcaoP();
+                break;
+            case 's':
+                opcaoS();
+                break;
+            case 't':
+                opcaoT();
+                break;
+            case 'd':
+                menu();
+                break;
+            case 'h':
+                assistencia();
+                break;
+            case 'q':
+                printf("Simulador encerrado");
+            default:
+                printf("Opcao invalida ,escolha outra vez");
+                break;
+        }
+
 }
