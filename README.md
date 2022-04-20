@@ -5,7 +5,7 @@ Este exercício serve os seguintes objectivos:
 - Utilização de variáveis
 - Utilização de decisores
 - Utilização de ciclos
-- Utilização de Vetores e/ou Strings
+- Utilização de Vetores e Strings
 - Praticar pensamento algoritmico
 
 Na resolução destes exercícios deve ser utilizada a Linguagem de Programação C. Para além da correta implementação dos requisitos, tenha em conta os seguintes aspetos:
@@ -17,7 +17,7 @@ Na resolução destes exercícios deve ser utilizada a Linguagem de Programaçã
 
 ##Descrição do problema
 O Daniel pretende instalar painéis fotovoltaicos na sua casa e para isso decidiu desenvolver uma aplicação para simualar a solução mais adequada aos seus consumos de eletricidade. Como base a este problema deverá usar um array para guardar os valores referentes a cada mês.
-Ao iniciar o programa deve ser solicitado o nome, o distrito onde se pretende fazer a simulação e o ano a que se referem os consumos. Caso o distrito seja inválido, deverá ser imprimida a mensagem <code>O distrito indicado não existe. A fechar...</code> e terminar o programa.
+Ao iniciar o programa deve ser solicitado o nome, o distrito onde se pretende fazer a simulação e o ano a que se referem os consumos. Caso o distrito seja inválido, deverá ser imprimida a mensagem <code>O distrito indicado nao existe. A fechar...</code> e terminar o programa.
 
 
 O programa deverá mostrar o seguinte menu:
@@ -31,7 +31,7 @@ O programa deverá mostrar o seguinte menu:
     puts(" |  r Remover consumo                       | ");
     puts(" |                                          | ");
     puts(" |_Calculos_________________________________| ");
-    puts(" |  g Média de consumo anual                | ");
+    puts(" |  g Media de consumo anual                | ");
     puts(" |  v Variancia de consumo verao vs inverno | ");
     puts(" |                                          | ");
     puts(" |_Simulacao________________________________| ");
@@ -49,13 +49,13 @@ O programa deverá mostrar o seguinte menu:
 
 ###Registos
 * opção `a`
-  Deverão ser lidos dois inteiros do tipo `unsigned short int` referentes ao mês e ao consumo em kWh referente ao mesmo.
+  Deverão ser lidos dois inteiros do tipo `int` referentes ao mês e ao consumo em kWh referente ao mesmo.
 
 * opção `m`
   Idêntico à opção `a`, mas apenas é permitido alterar um registo caso já tenha sido inserido.
 
 * opção `r`
-  Tal como na opção `a`, recebe os mesmos inputs mas remove o consumo para o mês indicado. Nesse mês, a leitura passará a ser `-1`.
+  Remove o consumo para o mês lido como input. Nesse mês, a leitura passará a ser `-1`.
 
 ###Cálculos
 As opções desta categoria só poderão ser executadas caso existam consumos registados para todos os meses de um ano.
@@ -82,7 +82,7 @@ Consumo em época de calor: 270kWh (delta=-30)
 As opções desta categoria só poderão ser executadas caso existam consumos registados para todos os meses de um ano.
 
 * opção `p`
-  Deverá ser lido um inteiro do tipo `unsigned short int` referente à área do telhado da casa. Para o cálculo do número de painéis recomendado a instalar deve ter em consideração a área de um painel fotovoltaico (0.5m<sup>2</sup>) e a sua eficiência típica (25%), o consumo anual que a produção fotovoltaica deve reduzir (30%) e o valor anual da irradiação, determinado em função do distrito[(1)](#ref1):
+  Deverá ser lido um inteiro do tipo `int` referente à área do telhado da casa. Para o cálculo do número de painéis recomendado a instalar deve ter em consideração a área de um painel fotovoltaico (0.5m<sup>2</sup>) e a sua eficiência típica (25%), o consumo anual que a produção fotovoltaica deve reduzir (30%) e o valor anual da irradiação, determinado em função do distrito[(1)](#ref1):
 
 | Distrito         | Irradiação média anual(kWh/m<sup>2</sup>) |
 |------------------|-------------------------------------------|
@@ -100,6 +100,7 @@ As opções desta categoria só poderão ser executadas caso existam consumos re
 | Lisboa           | 1772                                      |
 | Santarém         | 1735                                      |
 | Portalegre       | 1731                                      |
+| Évora            | 1827                                      |
 | Setúbal          | 1838                                      |
 | Beja             | 1884                                      |
 | Faro             | 1987                                      |
@@ -109,7 +110,9 @@ O output deverá estar no formato do exemplo:
   É recomendado instalar 5 painéis fotovoltaicos na propriedade de Manuel Fernandes 
 ```
 
-* opção `s` Deverá, caso já tenha sido executado a opção `p`, receber um `sortunsignedfloat` correspondente ao custo por kWh e calcular a poupança anual com o número de painéis instalados. O output deverá estar no formato do exemplo:
+**NOTA**: O nome dos distritos não deve conter espaços nem caracteres usados na língua portuguesa (acentos ou ç)
+
+* opção `s` Deverá, caso já tenha sido executado a opção `p`, receber um `float` correspondente ao custo por kWh e calcular a poupança anual com o número de painéis instalados. O output deverá estar no formato do exemplo:
 ```
 Com a instalação de 3 painéis e uma poupança de 500kWh/ano, terá uma poupança anual de 85,00€.
 ```
