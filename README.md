@@ -15,7 +15,7 @@ Na resolução destes exercícios deve ser utilizada a Linguagem de Programaçã
 - Tenha em atenção os nomes dados das variáveis, para que sejam indicadores daquilo que as mesmas vão conter.
 - O trabalho deve ser desenvolvido e submetido de forma individual.
 
-##Descrição do problema
+## Descrição do problema
 O Daniel pretende instalar painéis fotovoltaicos na sua casa e para isso decidiu desenvolver uma aplicação para simualar a solução mais adequada aos seus consumos de eletricidade. Como base a este problema deverá usar um array para guardar os valores referentes a cada mês.
 Ao iniciar o programa deve ser solicitado o nome, o distrito onde se pretende fazer a simulação e o ano a que se referem os consumos. Caso o distrito seja inválido, deverá ser imprimida a mensagem <code>O distrito indicado nao existe. A fechar...</code> e terminar o programa.
 
@@ -47,7 +47,9 @@ O programa deverá mostrar o seguinte menu:
     puts(" ============================================ ");
 ```
 
-###Registos
+Ao ler uma opção inválida é impressa a mensagem `Opcao invalida, escolha outra vez` seguido do menu
+
+### Registos
 * opção `a`
   Deverão ser lidos dois inteiros do tipo `int` referentes ao mês e ao consumo em kWh referente ao mesmo.
 
@@ -57,13 +59,13 @@ O programa deverá mostrar o seguinte menu:
 * opção `r`
   Remove o consumo para o mês lido como input. Nesse mês, a leitura passará a ser `-1`.
 
-###Cálculos
+### Cálculos
 As opções desta categoria só poderão ser executadas caso existam consumos registados para todos os meses de um ano.
 
 * opção `g`
   Calcular a média de consumo do ano indicado no mesmo formato do exemplo:
 ```
-Durante o ano de 2021 foram consumidos em média 361 kWh por mês
+Durante o ano de 2021 foram consumidos em media 361 kWh por mes
 ```
 
 * opção `v`
@@ -73,16 +75,16 @@ Durante o ano de 2021 foram consumidos em média 361 kWh por mês
   * Verão (época de calor): maio a agosto
 <br> O texto a imprimir deverá estar no formato do exemplo:
 ```
-Consumo típico: 300 kWh
-Consumo em época de frio: 450kWh (delta=150)
-Consumo em época de calor: 270kWh (delta=-30)
+Consumo tipico: 300 kWh
+Consumo medio em epoca de frio: 450kWh (delta=150)
+Consumo medio em epoca de calor: 270kWh (delta=-30)
 ```
 
-###Simulação
-As opções desta categoria só poderão ser executadas caso existam consumos registados para todos os meses de um ano.
+### Simulação
+As opções desta categoria só poderão ser executadas caso existam consumos registados para todos os meses de um ano. Se tal não se verificar, deve imprimir a mensagem `Registos em falta.`
 
 * opção `p`
-  Deverá ser lido um inteiro do tipo `int` referente à área do telhado da casa. Para o cálculo do número de painéis recomendado a instalar deve ter em consideração a área de um painel fotovoltaico (0.5m<sup>2</sup>) e a sua eficiência típica (25%), o consumo anual que a produção fotovoltaica deve reduzir (30%) e o valor anual da irradiação, determinado em função do distrito[(1)](#ref1):
+  Deverá ser lido um inteiro do tipo `int` referente à área do telhado da casa. Para o cálculo do número de painéis recomendado a instalar deve ter em consideração a área de um painel fotovoltaico (2m<sup>2</sup>) e a sua eficiência típica (25%), o consumo anual que a produção fotovoltaica deve reduzir (30%) e o valor anual da irradiação, determinado em função do distrito[(1)](#ref1):
 
 | Distrito         | Irradiação média anual(kWh/m<sup>2</sup>) |
 |------------------|-------------------------------------------|
@@ -107,22 +109,24 @@ As opções desta categoria só poderão ser executadas caso existam consumos re
 
 O output deverá estar no formato do exemplo:
 ```
-  É recomendado instalar 5 painéis fotovoltaicos na propriedade de Manuel Fernandes 
+  E' recomendado instalar 5 paineis fotovoltaicos na propriedade de Manuel Fernandes 
 ```
+
+Quando a área do telhado é inferior à área a ocupar pelos painéis fotovoltaicos, deve imprimir a mensagem `Area do telhado inferior 'a area de paineis necessaria para a producao ideal face ao consumo indicado`.
 
 **NOTA**: O nome dos distritos não deve conter espaços nem caracteres usados na língua portuguesa (acentos ou ç)
 
 * opção `s` Deverá, caso já tenha sido executado a opção `p`, receber um `float` correspondente ao custo por kWh e calcular a poupança anual com o número de painéis instalados. O output deverá estar no formato do exemplo:
 ```
-Com a instalação de 3 painéis e uma poupança de 500kWh/ano, terá uma poupança anual de 85,00€.
+Com a instalacao de 3 paineis e uma poupanca de 500kWh/ano, tera' uma poupanca anual de 85.00 euros.
 ```
 
-* opção `t` Semelhante à opção `s`, mas calculando o tempo, em anos, de retorno do investimento, considerando que cada painel custa 600€. O output deverá estar no formato do exemplo:
+* opção `t` Semelhante à opção `s`, mas calculando o tempo, em anos, de retorno do investimento, considerando que cada painel custa 400€. O output deverá estar no formato do exemplo:
 ```
-O investimento em painéis solares terá retorno após 7.2 anos de funcionamento.
+O investimento em paineis solares tera' retorno apos 7.2 anos de funcionamento.
 ```
 
-###Diversos
+### Diversos
 * opção `d` Esta opção mostra o menu novamente
 
 * opção `h` São mostrados os contactos em caso de dúvidas relativamente às operações realizadas como indicado
@@ -141,7 +145,7 @@ Loja fisica perto de si: Rua poluida, lote 3
 O código deverá estar correctamente indentado e comentado. É estritamente proibida a utilização da instrução `goto`.
 A utilização de variáveis globais (excepto constantes) é também proibida.
 
-##Referências
+## Referências
 
 <a name="ref1"></a>
 
