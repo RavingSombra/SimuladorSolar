@@ -225,7 +225,7 @@ void opcaoR(int* arrayResgisto) {
 //region Calculos
 void opcaoG(int* arrayRegistos, int ano) {
     int media = calcMedia(arrayRegistos, YEAR);
-    printf("Durante o ano de %d foram consumidos em media %d kWh por mes\n", ano, media);
+    printf("Durante o ano de %d foram consumidos em média %d kWh por mês\n", ano, media);
 }
 
 void opcaoV(int* arrayResgisto) {

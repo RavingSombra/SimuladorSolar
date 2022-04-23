@@ -39,6 +39,7 @@ O programa deverá mostrar o seguinte menu:
     puts(" |  t Tempo de retorno do investimento      | ");
     puts(" |                                          | ");
     puts(" |_Diversos_________________________________| ");
+    puts(" |  f Imprimir o consumo por mes            | ");
     puts(" |  d Imprimir este menu                    | ");
     puts(" |  h Solicitar assistencia                 | ");
     puts(" |  q Sair                                  | ");
@@ -49,6 +50,8 @@ O programa deverá mostrar o seguinte menu:
 Ao ler uma opção inválida é impressa a mensagem `Opcao invalida, escolha outra vez` seguido do menu.
 
 ### Registos
+Durante este processo caso existam registos em falta o programa deve imprimir `Registos em falta."`.
+Caso o mês seja inválido o programa deve imprimir `Mes invalido!`.
 * opção `a`
   - Deverão ser lidos dois inteiros do tipo `int` referentes ao mês e ao consumo em kWh referente ao mesmo.
   Caso já exista dados para um determinado mês o programa deve imprimir `Já existe um registo para este mes`.
