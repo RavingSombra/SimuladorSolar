@@ -17,8 +17,7 @@ Na resolução destes exercícios deve ser utilizada a Linguagem de Programaçã
 
 ## Descrição do problema
 O Daniel pretende instalar painéis fotovoltaicos na sua casa e para isso decidiu desenvolver uma aplicação para simualar a solução mais adequada aos seus consumos de eletricidade. Como base a este problema deverá usar um array para guardar os valores referentes a cada mês.
-Ao iniciar o programa deve ser solicitado o nome, o distrito onde se pretende fazer a simulação e o ano a que se referem os consumos. Caso o distrito seja inválido, deverá ser imprimida a mensagem <code>O distrito indicado nao existe. A fechar...</code> e terminar o programa.
-
+Ao iniciar o programa deve ser solicitado o seu primeiro nome, o distrito onde se pretende fazer a simulação e o ano a que se referem os consumos. Caso o distrito seja inválido, deverá ser imprimida a mensagem `O distrito indicado nao existe. A fechar...` e terminar o programa.
 
 O programa deverá mostrar o seguinte menu:
 
@@ -68,7 +67,7 @@ Durante o ano de 2021 foram consumidos em media 361 kWh por mes
 ```
 
 * opção `v`
-  Esta opção serve para dar uma estimativa ao utilizador do consumo médio a mais ou a menos nos períodos de inveno e de verão. Para tal consideram-se os seguintes intervalos:
+  Esta opção serve para dar uma estimativa ao utilizador do consumo médio a mais ou a menos nos períodos de inverno e de verão. Para tal consideram-se os seguintes intervalos:
   * Inverno (época de frio): novembro a fevereiro
   * Controlo: março e abril; setembro e outubro
   * Verão (época de calor): maio a agosto
@@ -87,7 +86,7 @@ As opções desta categoria só poderão ser executadas caso existam consumos re
 * opção `p`
   Deverá ser lido um inteiro do tipo `int` referente à área do telhado da casa. Para o cálculo do número de painéis recomendado a instalar deve ter em consideração a área de um painel fotovoltaico (2m<sup>2</sup>) e a sua eficiência típica (25%), o consumo anual que a produção fotovoltaica deve reduzir (30%) e o valor anual da irradiação, determinado em função do distrito[(1)](#ref1):
 
-| Distrito         | Irradiação média anual(kWh/m<sup>2</sup>) |
+| Distrito         | Irradiação média anual(kWh/m<sup>2</sup>) |  
 |------------------|-------------------------------------------|
 | Viana do Castelo | 1557                                      |
 | Braga            | 1574                                      |
@@ -154,3 +153,9 @@ A utilização de variáveis globais é também proibida (excepto constantes).
 
 * (1) IPMA - Radiação Solar Global em Portugal e a sua variabilidade
 https://www.researchgate.net/publication/312490545_Radiacao_Solar_Global_em_Portugal_e_a_sua_variabilidade
+* (2) Enunciado inspirado nos
+https://github.com/LP1ULHT/EX4_2022
+https://github.com/LP1ULHT/EX3
+https://github.com/LP1ULHT/EX2_2022
+https://github.com/LP1ULHT/EX1_2022
+https://github.com/LP1ULHT/EX0_2022
