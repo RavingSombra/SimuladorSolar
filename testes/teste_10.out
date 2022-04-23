@@ -1,0 +1,27 @@
+ =====SIMULADOR DE PRODUCAO FOTOVOLTAICA===== 
+ |                                          | 
+ |_Registos_________________________________| 
+ |  a Adicionar consumo                     | 
+ |  m Modificar consumo                     | 
+ |  r Remover consumo                       | 
+ |                                          | 
+ |_Calculos_________________________________| 
+ |  g Media de consumo anual                | 
+ |  v Variancia de consumo verao vs inverno | 
+ |                                          | 
+ |_Simulacao________________________________| 
+ |  p Numero de paineis a instalar          | 
+ |  s Poupanca anual estimada               | 
+ |  t Tempo de retorno do investimento      | 
+ |                                          | 
+ |_Diversos_________________________________| 
+ |  f Imprimir o consumo por mes            | 
+ |  d Imprimir este menu                    | 
+ |  h Solicitar assistencia                 | 
+ |  q Sair                                  | 
+ |                                          | 
+ ============================================ 
+Durante o ano de 2021 foram consumidos em media 2000 kWh por mes
+2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 
+
+Simulador encerrado

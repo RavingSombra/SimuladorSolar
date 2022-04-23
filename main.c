@@ -14,7 +14,8 @@ const char distritoInvalido[] = {"O distrito indicado nao existe. A fechar...\n"
 const char arrayNaoPreenchido[] = { "Registos em falta.\n" };
 const char invalidOption[] = {"Opcao invalida, escolha outra vez\n"};
 const char invalidMonth[] = {"Mes invalido!\n"};
-const char invalidOperation[] = {"Ja' existe um registo para este mes\n"};
+const char invalidOperationAdd[] = {"Ja' existe um registo para este mes\n"};
+const char invalidOperationMod[] = {"Ainda nao existe um registo para este mes\n"};
 const char exitProgram[] = {"Simulador encerrado\n"};
 //endregion
 
@@ -62,7 +63,7 @@ int main(void) {
     int ano;
     int arrayRegistos[YEAR];
 
-    scanf(" %s %s %d", &nome, &distritoInserido, &ano);
+    scanf(" %9s %16s %d", nome, distritoInserido, &ano);
 
     if (validaDistrito(distritoInserido) == 1) {
         puts(distritoInvalido);
@@ -101,6 +102,7 @@ void menu() {
     puts(" |  t Tempo de retorno do investimento      | ");
     puts(" |                                          | ");
     puts(" |_Diversos_________________________________| ");
+    puts(" |  f Imprimir o consumo por mes            | ");
     puts(" |  d Imprimir este menu                    | ");
     puts(" |  h Solicitar assistencia                 | ");
     puts(" |  q Sair                                  | ");
@@ -109,11 +111,11 @@ void menu() {
 }
 
 void assistencia() {
-    puts("A nossa linha telefonica de assistencia funciona nos dias uteis entre as 8 e as 18 horas.");
-    puts("Se desejar desloque-se 'as nossas instalacoes.");
-    puts("Contacto telefonico: 212345667");
-    puts("Endereco eletronico: mundo.melhor@gmail.com");
-    puts("Loja fisica perto de si: Rua poluida, lote 3");
+    puts("A nossa linha telefónica de assistência funciona nos dias úteis entre as 8 e as 18 horas.");
+    puts("Se desejar desloque-se ás nossas instalações.");
+    puts("Contacto telefónico: 212345667");
+    puts("Endereço eletrónico: mundo.melhor@gmail.com");
+    puts("Loja física perto de si: Rua poluída, lote 3");
 }
 
 void escolha(char c, int* arrayRegistos, char nome[], char regiao[], int ano) {
@@ -148,7 +150,7 @@ void escolha(char c, int* arrayRegistos, char nome[], char regiao[], int ano) {
         case 'h':
             assistencia();
             break;
-        case 'f': //Apenas para debug
+        case 'f':
             MostraArray(arrayRegistos, YEAR);
             break;
         case 'q':
@@ -174,7 +176,7 @@ void opcaoA(int *arrayResgisto) {
     }
 
     if (arrayResgisto[mes - 1] != -1) {
-        puts(invalidOperation);
+        puts(invalidOperationAdd);
         return;
     }
 
@@ -190,6 +192,12 @@ void opcaoM(int* arrayResgisto) {
     int consumo;
 
     scanf(" %d %d", &mes, &consumo);
+
+    if (arrayResgisto[mes - 1] == -1) {
+        puts(invalidOperationMod);
+        return;
+    }
+
     if (entreAB(mes, 0, YEAR + 1)) {
         for (int i = 0; i < YEAR; i++) {
             if (mes - 1 == i) {
@@ -206,7 +214,7 @@ void opcaoR(int* arrayResgisto) {
     if (entreAB(mes, 0, YEAR + 1)) {
         for (int i = 0; i < YEAR; i++) {
             if (mes - 1 == i) {
-                arrayResgisto[i] = -1;
+                arrayResgisto[i] = DEFAULT_VALUE;
             }
         }
     }
@@ -229,25 +237,27 @@ void opcaoV(int* arrayResgisto) {
 
     if (estaPreenchido(arrayResgisto, YEAR) == 0) {
         puts(arrayNaoPreenchido);
+        return;
     }
 
     for (int i = 0; i < YEAR; i++) {
-        if (i >= 11 || i <= 2) {
-            media = media + arrayResgisto[i];
-        } else if (i >= 5 && i <= 8) {
-            media1 = media1 + arrayResgisto[i];
-        } else {
-            media2 = media2 + arrayResgisto[i];
+        if(arrayResgisto[i]>=0) {
+            if (i >= 10 || i <= 1) {
+                media = media + arrayResgisto[i];
+            } else if (i >= 4 && i <= 7) {
+                media1 = media1 + arrayResgisto[i];
+            } else {
+                media2 = media2 + arrayResgisto[i];
+            }
         }
     }
 
     media = media / 4;
     media1 = media1 / 4;
     media2 = media2 / 4;
-    delta = media2 - media;
-    delta1 = media1 - media;
-    printf("Consumo tipico: %d \nConsumo em epoca de frio: %d (delta= %d ) \nConsumo em epoca de calor: %d (delta= %d )\n", media, media2, delta, media1, delta1);
-
+    delta = media - media2;
+    delta1 = media1 - media2;
+    printf("Consumo tipico: %d \nConsumo em época de frio: %d (delta= %d ) \nConsumo em época de calor: %d (delta= %d )\n", media2, media, delta, media1, delta1);
 }
 //endregion
 
@@ -256,6 +266,7 @@ void opcaoP(int* arrayResgisto, char regiao[], char nome[]) {
 
     if (estaPreenchido(arrayResgisto, YEAR) == 0) {
         puts(arrayNaoPreenchido);
+        return;
     }
 
     scanf(" %d", &roofArea);
@@ -267,7 +278,7 @@ void opcaoP(int* arrayResgisto, char regiao[], char nome[]) {
         puts("Area do telhado inferior 'a area de paineis necessaria para a producao ideal face ao consumo indicado\n");
     }
     else {
-        printf("E' recomendado instalar %d paineis fotovoltaicos na propriedade de %s\n", numSolarPanels, nome);
+        printf("É recomendado instalar %d paineis fotovoltaicos na propriedade de %s.\n", numSolarPanels, nome);
     }
 }
 
@@ -277,6 +288,7 @@ void opcaoS(int* arrayResgisto, char regiao[]) {
 
     if (estaPreenchido(arrayResgisto, YEAR) == 0) {
         puts(arrayNaoPreenchido);
+        return;
     }
 
     scanf(" %f", &kwhCost);
@@ -287,7 +299,7 @@ void opcaoS(int* arrayResgisto, char regiao[]) {
     anualProduction = anualRadiation * numSolarPanels;
     anualSavings = anualProduction * kwhCost;
 
-    printf("Com a instalacao de %d paineis e uma poupanca de %d kWh/ano, tera' uma poupanca anual de %.2f euros.\n", numSolarPanels, anualProduction, anualSavings);
+    printf("Com a instalação de %d paineis e uma poupanca de %d kWh/ano, terá uma poupanca anual de %.2f euros.\n", numSolarPanels, anualProduction, anualSavings);
 }
 
 void opcaoT(int* arrayResgisto, char regiao[]) {
@@ -296,6 +308,7 @@ void opcaoT(int* arrayResgisto, char regiao[]) {
 
     if (estaPreenchido(arrayResgisto, YEAR) == 0) {
         puts(arrayNaoPreenchido);
+        return;
     }
 
     scanf(" %f", &kwhCost);
@@ -306,7 +319,7 @@ void opcaoT(int* arrayResgisto, char regiao[]) {
     anualProduction = anualRadiation * numSolarPanels;
     anualSavings = anualProduction * kwhCost;
 
-    printf("O investimento em paineis solares tera' retorno apos %.1f anos de funcionamento.", PANEL_COST / anualSavings);
+    printf("O investimento em paineis solares terá retorno apos %.1f anos de funcionamento.\n", (PANEL_COST*numSolarPanels) / anualSavings);
 }
 
 //region Funções auxiliares
@@ -380,7 +393,9 @@ int entreAB(int x, int inf, int sup)
 int calcMedia(int vals[], int qtd) {
     int soma = 0;
     for (int idx = 0; idx < qtd; idx++) {
-        soma += vals[idx];
+        if(vals[idx]>=0) {
+            soma += vals[idx];
+        }
     }
 
     return soma / qtd;
