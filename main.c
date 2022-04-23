@@ -16,6 +16,7 @@ const char invalidOption[] = {"Opcao invalida, escolha outra vez\n"};
 const char invalidMonth[] = {"Mes invalido!\n"};
 const char invalidOperationAdd[] = {"Ja' existe um registo para este mes\n"};
 const char invalidOperationMod[] = {"Ainda nao existe um registo para este mes\n"};
+const char invalidConsumption[] = {"Consumo invalido!\n"};
 const char exitProgram[] = {"Simulador encerrado\n"};
 //endregion
 
@@ -180,6 +181,11 @@ void opcaoA(int *arrayResgisto) {
         return;
     }
 
+    if(consumo<0){
+        puts(invalidConsumption);
+        return;
+    }
+
     for (int i = 0; i < YEAR; i++) {
         if (mes - 1 == i) {
             arrayResgisto[i] = consumo;
@@ -193,39 +199,50 @@ void opcaoM(int* arrayResgisto) {
 
     scanf(" %d %d", &mes, &consumo);
 
+    if (entreAB(mes, 0, YEAR + 1) == 0) {
+        puts(invalidMonth);
+        return;
+    }
+
     if (arrayResgisto[mes - 1] == -1) {
         puts(invalidOperationMod);
         return;
     }
 
-    if (entreAB(mes, 0, YEAR + 1)) {
+    if(consumo<0){
+        puts(invalidConsumption);
+        return;
+    }
+
         for (int i = 0; i < YEAR; i++) {
             if (mes - 1 == i) {
                 arrayResgisto[i] = consumo;
             }
         }
-    }
 }
 
 void opcaoR(int* arrayResgisto) {
     int mes;
 
     scanf(" %d", &mes);
-    if (entreAB(mes, 0, YEAR + 1)) {
-        for (int i = 0; i < YEAR; i++) {
-            if (mes - 1 == i) {
-                arrayResgisto[i] = DEFAULT_VALUE;
-            }
-        }
+
+    if (entreAB(mes, 0, YEAR + 1) == 0) {
+        puts(invalidMonth);
+        return;
     }
 
+    for (int i = 0; i < YEAR; i++) {
+        if (mes - 1 == i) {
+            arrayResgisto[i] = DEFAULT_VALUE;
+        }
+    }
 }
 //endregion
 
 //region Calculos
 void opcaoG(int* arrayRegistos, int ano) {
     int media = calcMedia(arrayRegistos, YEAR);
-    printf("Durante o ano de %d foram consumidos em média %d kWh por mês\n", ano, media);
+    printf("Durante o ano de %d foram consumidos em media %d kWh por mes\n", ano, media);
 }
 
 void opcaoV(int* arrayResgisto) {
@@ -257,7 +274,7 @@ void opcaoV(int* arrayResgisto) {
     media2 = media2 / 4;
     delta = media - media2;
     delta1 = media1 - media2;
-    printf("Consumo tipico: %d \nConsumo em época de frio: %d (delta= %d ) \nConsumo em época de calor: %d (delta= %d )\n", media2, media, delta, media1, delta1);
+    printf("Consumo tipico: %d\nConsumo em epoca de frio: %d (delta= %d )\nConsumo em epoca de calor: %d (delta= %d )\n", media2, media, delta, media1, delta1);
 }
 //endregion
 
@@ -278,7 +295,7 @@ void opcaoP(int* arrayResgisto, char regiao[], char nome[]) {
         puts("Area do telhado inferior 'a area de paineis necessaria para a producao ideal face ao consumo indicado\n");
     }
     else {
-        printf("É recomendado instalar %d paineis fotovoltaicos na propriedade de %s.\n", numSolarPanels, nome);
+        printf("E' recomendado instalar %d paineis fotovoltaicos na propriedade de %s.\n", numSolarPanels, nome);
     }
 }
 
@@ -299,7 +316,7 @@ void opcaoS(int* arrayResgisto, char regiao[]) {
     anualProduction = anualRadiation * numSolarPanels;
     anualSavings = anualProduction * kwhCost;
 
-    printf("Com a instalação de %d paineis e uma poupanca de %d kWh/ano, terá uma poupanca anual de %.2f euros.\n", numSolarPanels, anualProduction, anualSavings);
+    printf("Com a instalacao de %d paineis e uma poupanca de %d kWh/ano, tera' uma poupanca anual de %.2f euros.\n", numSolarPanels, anualProduction, anualSavings);
 }
 
 void opcaoT(int* arrayResgisto, char regiao[]) {
@@ -319,7 +336,7 @@ void opcaoT(int* arrayResgisto, char regiao[]) {
     anualProduction = anualRadiation * numSolarPanels;
     anualSavings = anualProduction * kwhCost;
 
-    printf("O investimento em paineis solares terá retorno apos %.1f anos de funcionamento.\n", (PANEL_COST*numSolarPanels) / anualSavings);
+    printf("O investimento em paineis solares tera' retorno apos %.1f anos de funcionamento.\n", (PANEL_COST*numSolarPanels) / anualSavings);
 }
 
 //region Funções auxiliares

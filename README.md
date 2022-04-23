@@ -50,12 +50,14 @@ O programa deverá mostrar o seguinte menu:
 Ao ler uma opção inválida é impressa a mensagem `Opcao invalida, escolha outra vez` seguido do menu.
 
 ### Registos
-Durante este processo caso existam registos em falta o programa deve imprimir `Registos em falta."`.
+Durante este processo caso existam registos em falta o programa deve imprimir `Registos em falta.`.
 Caso o mês seja inválido o programa deve imprimir `Mes invalido!`.
+Caso o consumo seja não negativo, o programa deve imprimir `Consumo invalido!`.
 * opção `a`
-  - Deverão ser lidos dois inteiros do tipo `int` referentes ao mês e ao consumo em kWh referente ao mesmo.
-  Caso já exista dados para um determinado mês o programa deve imprimir `Já existe um registo para este mes`.
+  Deverão ser lidos dois inteiros do tipo `int` referentes ao mês e ao consumo em kWh referente ao mesmo.
+  Caso já existam dados para um determinado mês o programa deve imprimir `Ja' existe um registo para este mes`.
 * opção `m` Idêntico à opção `a`, mas apenas é permitido alterar um registo caso já tenha sido inserido.
+  Caso não existam dados para um determinado mês o programa deve imprimir `Ainda nao existe um registo para este mes`.
 
 * opção `r`
   Remove o consumo para o mês lido como input. Nesse mês, a leitura voltará ao valor de quando o array foi inicializado.
@@ -117,7 +119,7 @@ O output deverá estar no formato do exemplo:
 
 Quando a área do telhado é inferior à área a ocupar pelos painéis fotovoltaicos, deve imprimir a mensagem `Area do telhado inferior 'a area de paineis necessaria para a producao ideal face ao consumo indicado.`.
 
-**NOTA**: O nome dos distritos não deve conter espaços nem caracteres usados na língua portuguesa (acentos ou ç)
+**NOTA**: O nome dos distritos não deve conter espaços nem caracteres usados na língua portuguesa (acentos ou ç).
 
 * opção `s` Deverá receber um `float` correspondente ao custo por kWh e calcular a poupança anual com o número de painéis instalados. O output deverá estar no formato do exemplo:
 ```
@@ -156,9 +158,5 @@ A utilização de variáveis globais é também proibida (excepto constantes).
 
 * (1) IPMA - Radiação Solar Global em Portugal e a sua variabilidade
 https://www.researchgate.net/publication/312490545_Radiacao_Solar_Global_em_Portugal_e_a_sua_variabilidade
-* (2) Enunciado inspirado nos
-https://github.com/LP1ULHT/EX4_2022
+* (2) Enunciado inspirado em
 https://github.com/LP1ULHT/EX3
-https://github.com/LP1ULHT/EX2_2022
-https://github.com/LP1ULHT/EX1_2022
-https://github.com/LP1ULHT/EX0_2022
